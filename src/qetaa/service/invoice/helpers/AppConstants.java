@@ -1,4 +1,4 @@
-package qetaa.service.invoice.helpers;rpackage qetaa.service.invoice.helpers;
+package qetaa.service.invoice.helpers;
 
 public final class AppConstants {
 	private static final String CUSTOMER_SERVICE = "http://localhost:8080/service-qetaa-customer/rest/";
