@@ -11,8 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
-import qetaa.service.invoice.model.purchase.Purchase;
+import qetaa.service.invoice.model.sales.SalesProduct;
 
 @Entity
 @Table(name="inv_purchase_product")
@@ -32,9 +33,31 @@ public class PurchaseProduct implements Serializable{
 	@ManyToOne
 	private Purchase purchase;
 	@Column(name="unit_cost")
-	private double unitCost;
+	private Double unitCost;
 	@Column(name="unit_cost_wv")
-	private double unitCostWv;
+	private Double unitCostWv;
+	@Column(name="wallet_item_id")
+	private Long walletItemId;
+	
+	
+	@Transient
+	private SalesProduct salesProduct;
+	
+	
+	
+	
+	public SalesProduct getSalesProduct() {
+		return salesProduct;
+	}
+	public void setSalesProduct(SalesProduct salesProduct) {
+		this.salesProduct = salesProduct;
+	}
+	public Long getWalletItemId() {
+		return walletItemId;
+	}
+	public void setWalletItemId(Long walletId) {
+		this.walletItemId = walletId;
+	}
 	public long getId() {
 		return id;
 	}
@@ -59,16 +82,16 @@ public class PurchaseProduct implements Serializable{
 	public void setPurchase(Purchase purchase) {
 		this.purchase = purchase;
 	}
-	public double getUnitCost() {
+	public Double getUnitCost() {
 		return unitCost;
 	}
-	public void setUnitCost(double unitCost) {
+	public void setUnitCost(Double unitCost) {
 		this.unitCost = unitCost;
 	}
-	public double getUnitCostWv() {
+	public Double getUnitCostWv() {
 		return unitCostWv;
 	}
-	public void setUnitCostWv(double unitCostWv) {
+	public void setUnitCostWv(Double unitCostWv) {
 		this.unitCostWv = unitCostWv;
 	}
 	

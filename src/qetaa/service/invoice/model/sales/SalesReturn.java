@@ -55,9 +55,13 @@ public class SalesReturn implements Serializable{
 	private Integer promotionId;
 	@Column(name="bank_id")
 	private Integer bankId;
+	@Column(name="returned_delivery_fees")
+	private Double returnedDeliveryFees;
 	
 	@Transient
 	private List<SalesReturnProduct> salesReturnProducts;
+	@Transient
+	private List<SalesPayment> salesPayments;
 	
 	
 	
@@ -147,6 +151,19 @@ public class SalesReturn implements Serializable{
 	public void setPromotionId(Integer promotionId) {
 		this.promotionId = promotionId;
 	}
+	public List<SalesPayment> getSalesPayments() {
+		return salesPayments;
+	}
+	public void setSalesPayments(List<SalesPayment> salesPayments) {
+		this.salesPayments = salesPayments;
+	}
+	public Double getReturnedDeliveryFees() {
+		return returnedDeliveryFees;
+	}
+	public void setReturnedDeliveryFees(Double returnedDeliveryFees) {
+		this.returnedDeliveryFees = returnedDeliveryFees;
+	}
+	
 	
 	
 	

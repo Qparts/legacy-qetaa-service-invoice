@@ -31,12 +31,20 @@ public class Purchase implements Serializable{
 	@Column(name="transaction_type")
 	private char transactionType;
 	@Column(name="payment_status")
-	private char paymentStatus;
+	private char paymentStatus;//I = incomplete, O = outstanding, P = paid
 	@Column(name="purchase_date")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date purchaseDate;
+	@Column(name="created")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date created;
+	@Column(name="completed")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date completed;
 	@Column(name="created_by")
 	private int createdBy;
+	@Column(name="completed_by")
+	private Integer completedBy;
 	@Column(name="due_date")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dueDate;
@@ -53,6 +61,18 @@ public class Purchase implements Serializable{
 	@Transient
 	private List<PurchaseReturn> purchaseReturns;
 	
+	
+	
+	
+
+	
+	
+	public Date getCreated() {
+		return created;
+	}
+	public void setCreated(Date created) {
+		this.created = created;
+	}
 	public long getId() {
 		return id;
 	}
@@ -131,6 +151,19 @@ public class Purchase implements Serializable{
 	public void setPurchaseReturns(List<PurchaseReturn> purchaseReturns) {
 		this.purchaseReturns = purchaseReturns;
 	}
+	public Integer getCompletedBy() {
+		return completedBy;
+	}
+	public void setCompletedBy(Integer completedBy) {
+		this.completedBy = completedBy;
+	}
+	public Date getCompleted() {
+		return completed;
+	}
+	public void setCompleted(Date completed) {
+		this.completed = completed;
+	}
+	
 	
 	
 	
